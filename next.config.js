@@ -6,6 +6,12 @@ module.exports = {
   async rewrites() {
     return [
       {
+        source: '/de',
+        destination: '/zh-CN/betway.com',
+        locale: false,
+        has: [{ key: 'x-bwg-host', type: 'header', value: 'betway.com' }],
+      },
+      {
         source: '/zh-CN',
         destination: '/zh-CN/betway.com',
         locale: false,
