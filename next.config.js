@@ -1,15 +1,14 @@
 module.exports = {
   i18n: {
     locales: ['nl', 'fr', 'de', 'zh-CN'],
-    defaultLocale: 'de',
+    defaultLocale: 'fr',
   },
   async rewrites() {
     return [
       {
-        source: '/de',
-        destination: '/zh-CN/betway.com',
-        locale: false,
-        has: [{ key: 'x-bwg-host', type: 'header', value: 'betway.com' }],
+        source: '/',
+        destination: '/betway.com',
+        // locale: false,
       },
       {
         source: '/zh-CN',
