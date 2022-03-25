@@ -1,30 +1,32 @@
 module.exports = {
   i18n: {
-    locales: ['en', 'fr', 'de'],
-    defaultLocale: 'en',
+    locales: ['nl', 'fr', 'de', 'zh-CN'],
+    defaultLocale: 'de',
   },
   async rewrites() {
-    {
-      return [
-        {
-          destination: '/en',
-          has: [{ key: 'x-bwg-host', type: 'header', value: 'betway.com' }],
-          locale: false,
-          source: '/',
-        },
-        {
-          destination: '/en/betway.com',
-          has: [{ key: 'x-bwg-host', type: 'header', value: 'betway.com' }],
-          locale: false,
-          source: '/en',
-        },
-        {
-          destination: '/de/betway.com',
-          has: [{ key: 'x-bwg-host', type: 'header', value: 'betway.com' }],
-          locale: false,
-          source: '/de',
-        },
-      ]
-    }
+    return [
+      {
+        source: '/zh-CN',
+        destination: '/zh-CN/betway.com',
+        locale: false,
+      },
+      {
+        source: '/nl',
+        destination: '/de/betway.com',
+        locale: false,
+      },
+      {
+        source: '/zh-CN',
+        destination: '/zh-CN/betway.com',
+        has: [{ key: 'x-bwg-host', type: 'header', value: 'betway.com' }],
+        locale: false,
+      },
+      {
+        source: '/de',
+        destination: '/de/betway.com',
+        has: [{ key: 'x-bwg-host', type: 'header', value: 'betway.com' }],
+        locale: false,
+      },
+    ]
   },
 }

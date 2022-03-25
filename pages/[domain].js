@@ -1,5 +1,5 @@
-export default function Domain() {
-  return 'domain'
+export default function Domain({ locale }) {
+  return 'domain' + '-' + locale
 }
 
 export const getStaticProps = ({ locale, locales }) => {
