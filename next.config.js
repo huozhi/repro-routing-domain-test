@@ -9,16 +9,19 @@ module.exports = {
         {
           source: '/de',
           destination: '/de/betway.com',
+          has: [{ key: 'x-bwg-host', type: 'header', value: 'betway.com' }],
           locale: false,
         },
         {
           source: '/fr',
           destination: '/fr/betway.com',
+          has: [{ key: 'x-bwg-host', type: 'header', value: 'betway.com' }],
           locale: false,
         },
         {
           source: '/nl',
           destination: '/nl/betway.com',
+          has: [{ key: 'x-bwg-host', type: 'header', value: 'betway.com' }],
           locale: false,
         },
         {
