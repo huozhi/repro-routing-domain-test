@@ -1,35 +1,68 @@
 module.exports = {
+  trailingSlash: false,
   i18n: {
-    locales: ['nl', 'fr', 'de'],
-    defaultLocale: 'de',
+    locales: ['en-in', 'hi-in', 'en-gb', 'es-mx'],
+    defaultLocale: 'en-gb',
   },
   async rewrites() {
-    return {
-      fallback: [
+    {
+      return [
         {
-          source: '/de',
-          destination: '/de/betway.com',
+          source: '/en-in',
+          destination: '/en-in/betway.com',
+          has: [{
+            key: 'x-bwg-host',
+            type: 'header',
+            value: 'betway.com'
+          }],
           locale: false,
         },
         {
-          source: '/de',
-          destination: '/de/betway.com',
-          has: [{ key: 'x-bwg-host', type: 'header', value: 'betway.com' }],
+          source: '/hi-in',
+          destination: '/hi-in/betway.com',
+          has: [{
+            key: 'x-bwg-host',
+            type: 'header',
+            value: 'betway.com'
+          }],
           locale: false,
         },
         {
-          source: '/fr',
-          destination: '/fr/betway.com',
-          has: [{ key: 'x-bwg-host', type: 'header', value: 'betway.com' }],
+          source: '/en-gb',
+          destination: '/en-gb/betway.com',
+          has: [{
+            key: 'x-bwg-host',
+            type: 'header',
+            value: 'betway.com'
+          }],
           locale: false,
         },
         {
-          source: '/nl',
-          destination: '/nl/betway.com',
-          has: [{ key: 'x-bwg-host', type: 'header', value: 'betway.com' }],
+          source: '/en-gb',
+          destination: '/es-mx/betway.mx',
+          has: [{
+            key: 'x-bwg-host',
+            type: 'header',
+            value: 'betway.mx'
+          }],
           locale: false,
         },
-      ],
+        {
+          source: '/es-mx',
+          destination: '/es-mx/betway.mx',
+          has: [{
+            key: 'x-bwg-host',
+            type: 'header',
+            value: 'betway.mx'
+          }],
+          locale: false,
+        },
+        {
+          source: '/en-gb',
+          destination: '/en-gb/betway.com',
+          locale: false,
+        },
+      ]
     }
   },
 }
