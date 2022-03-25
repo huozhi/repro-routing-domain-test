@@ -16,7 +16,6 @@ export const getStaticPaths = ({ locales }) => {
 
   for (const locale of locales) {
     paths.push({ params: { domain: 'betway.com' }, locale })
-    // paths.push({ params: { slug: 'second' }, locale })
   }
 
   return {
